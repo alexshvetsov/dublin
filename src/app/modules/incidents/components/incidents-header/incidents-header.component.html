@@ -1,0 +1,41 @@
+<div class="incidents-header">
+  <div class="header">
+    <h2 class="headline-container"><b>management-tool</b></h2>
+    <div class="buttons-container">
+      <button
+        [ngClass]="{ 'active-layout-button': !isTableLayout }"
+        mat-mini-fab
+        aria-label="change to card view"
+        (click)="emitToggleIsTableLayout(false)"
+      >
+        <mat-icon>apps</mat-icon>
+      </button>
+      <button
+        [ngClass]="{ 'active-layout-button': isTableLayout }"
+        mat-mini-fab
+        aria-label="switch to table view"
+        (click)="emitToggleIsTableLayout(true)"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        aria-label="add incident"
+        (click)="navigateToAddIncident()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="search-input">
+    <mat-form-field class="example-full-width">
+      <mat-label>Incident name</mat-label>
+      <input
+        matInput
+        placeholder="Enter incidetn name"
+        [formControl]="incidentNameControl"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

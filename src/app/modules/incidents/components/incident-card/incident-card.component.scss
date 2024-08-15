@@ -1,0 +1,31 @@
+.incident-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  transition: box-shadow 0.3s ease; 
+  cursor: pointer; 
+}
+
+.incident-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.incident-card div {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.incident-card div span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.incident-card div:last-child {
+  margin-bottom: 0;
+}

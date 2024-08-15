@@ -1,0 +1,21 @@
+<div class="incidents">
+  <app-incidents-header
+    [isTableLayout]="isTableLayout"
+    (toggleIsTableLayoutEmitter)="toggleIsTableLayout($event)"
+  />
+  <ng-container *ngIf="incidents$ | async as incidents">
+
+    <ng-container *ngIf="isTableLayout; else cardTemplate">
+      <app-incidents-table [dataSource]="incidents" />
+    </ng-container>
+
+    <ng-template #cardTemplate>
+      <div class="cards-container">
+        <ng-container *ngFor="let incident of incidents">
+          <app-incident-card [incident]="incident" />
+        </ng-container>
+      </div>
+    </ng-template>
+    
+  </ng-container>
+</div>

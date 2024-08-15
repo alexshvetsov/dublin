@@ -1,0 +1,68 @@
+{
+  "incidents": [
+    {
+      "id": "1",
+      "color": "#FF5733",
+      "name": "Incident A",
+      "createDate": "2023-08-10T09:00:00Z",
+      "updatedDated": "2023-08-11T10:00:00Z",
+      "createdBy": "Officer Smith"
+    },
+    {
+      "id": "2",
+      "color": "#33FF57",
+      "name": "Incident B",
+      "createDate": "2023-08-10T11:30:00Z",
+      "updatedDated": "2023-08-11T12:30:00Z",
+      "createdBy": "Officer Jones"
+    },
+    {
+      "id": "3",
+      "color": "#3357FF",
+      "name": "Incident C",
+      "createDate": "2023-08-09T08:15:00Z",
+      "updatedDated": "2023-08-10T09:45:00Z",
+      "createdBy": "Officer Lee"
+    },
+    {
+      "id": "4",
+      "color": "#FF33A1",
+      "name": "Incident D",
+      "createDate": "2023-08-11T14:20:00Z",
+      "updatedDated": "2023-08-12T15:50:00Z",
+      "createdBy": "Officer Davis"
+    },
+    {
+      "id": "5",
+      "color": "#111",
+      "name": "asd",
+      "createDate": "2024-08-15T05:29:27.723Z",
+      "updatedDated": "2024-08-15T05:29:27.724Z",
+      "createdBy": "asd"
+    },
+    {
+      "id": "6",
+      "color": "#FF5733",
+      "name": "Incident F",
+      "createDate": "2023-08-12T18:00:00Z",
+      "updatedDated": "2023-08-13T19:30:00Z",
+      "createdBy": "Officer Brown"
+    },
+    {
+      "id": 5,
+      "color": "#aaa",
+      "name": "asd",
+      "createDate": "2024-08-15T05:30:10.693Z",
+      "updatedDated": "2024-08-15T05:30:10.693Z",
+      "createdBy": "asd"
+    },
+    {
+      "id": -1,
+      "color": "#111",
+      "name": "as",
+      "createDate": "2024-08-15T05:56:48.037Z",
+      "updatedDated": "2024-08-15T05:56:48.037Z",
+      "createdBy": "asd"
+    }
+  ]
+}

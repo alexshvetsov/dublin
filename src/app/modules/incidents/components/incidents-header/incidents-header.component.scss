@@ -1,0 +1,32 @@
+.incidents-header {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headline-container{
+  margin: 0;
+}
+
+.buttons-container{
+  display: flex;
+  gap: 1rem;
+}
+
+.active-layout-button {
+  background-color: black;
+}
+
+.search-input {
+  mat-form-field {
+    width: 100%;
+  }
+}

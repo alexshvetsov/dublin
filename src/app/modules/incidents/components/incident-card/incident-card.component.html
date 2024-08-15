@@ -1,0 +1,12 @@
+<div class="incident-card" (click)="navigateToIncident()">
+  <div>
+    <b>Color:</b>
+    <span [innerHTML]="incident.color | colorSquare"></span>
+  </div>
+  <div><b>Name:</b> {{ incident.name }}</div>
+  <div><b>CreatedBy:</b> {{ incident.createdBy }}</div>
+  <div><b>CreateDate:</b> {{ incident.createDate | date : "dd/MM/yyyy" }}</div>
+  <div>
+    <b>updatedDated:</b> {{ incident.updatedDated | date : "dd/MM/yyyy" }}
+  </div>
+</div>
