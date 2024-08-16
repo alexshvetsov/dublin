@@ -1,0 +1,11 @@
+{
+  "req": "Post",
+  "reqData": {
+    "body": {
+      "username": "string",
+      "password": "string"
+    }
+  },
+  "resData": { "statusCode": 200, "userType": "userType" },
+  "errorData": { "statusCode": "number", "message": "string" }
+}

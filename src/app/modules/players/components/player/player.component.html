@@ -1,0 +1,11 @@
+<div>
+  <app-player-form
+    [player]="player"
+    (playerFormSubmitted)="addOrUpdatePlayer($event)"
+  />
+  <div class="balance-container">
+    <div class="total-balance balance"><b>total balance</b>{{ player?.totalBalance || 0 }}</div>
+    <div class="weekly-balance balance"><b>weekly balance</b>{{ player?.weeklyBalance || 0 }}</div>
+  </div>
+  <app-player-games-table [player]="player" />
+</div>

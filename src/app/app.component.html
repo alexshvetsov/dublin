@@ -1,1 +1,36 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        (click)="navigate('players')"
+        routerLinkActive="active-link"
+        >Players</a
+      >
+      <a mat-list-item routerLink="/about" routerLinkActive="active-link"
+        >About</a
+      >
+      <a mat-list-item routerLink="/contact" routerLinkActive="active-link"
+        >Contact</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <!-- Headline area -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My Application</span>
+    </mat-toolbar>
+
+    <!-- Router outlet -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

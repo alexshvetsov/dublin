@@ -8,5 +8,10 @@ export const routes: Routes = [
         (m) => m.IncidentsModule
       ),
   },
-  { path: '**', redirectTo: 'incidents' },
+  {
+    path: 'players',
+    loadChildren: () =>
+      import('./modules/players/players.module').then((m) => m.PlayersModule),
+  },
+  // { path: '**', redirectTo: 'incidents' },
 ];

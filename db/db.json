@@ -1,68 +1,262 @@
 {
-  "incidents": [
+  "games": [
     {
-      "id": "1",
-      "color": "#FF5733",
-      "name": "Incident A",
-      "createDate": "2023-08-10T09:00:00Z",
-      "updatedDated": "2023-08-11T10:00:00Z",
-      "createdBy": "Officer Smith"
+      "id": "game1",
+      "gameNum": "001",
+      "gameType": "Poker",
+      "result": 500,
+      "date": "2024-08-01T00:00:00.000Z",
+      "rake": 50
     },
     {
-      "id": "2",
-      "color": "#33FF57",
-      "name": "Incident B",
-      "createDate": "2023-08-10T11:30:00Z",
-      "updatedDated": "2023-08-11T12:30:00Z",
-      "createdBy": "Officer Jones"
+      "id": "game2",
+      "gameNum": "002",
+      "gameType": "Blackjack",
+      "result": -300,
+      "date": "2024-08-02T00:00:00.000Z",
+      "rake": 30
     },
     {
-      "id": "3",
-      "color": "#3357FF",
-      "name": "Incident C",
-      "createDate": "2023-08-09T08:15:00Z",
-      "updatedDated": "2023-08-10T09:45:00Z",
-      "createdBy": "Officer Lee"
+      "id": "game3",
+      "gameNum": "003",
+      "gameType": "Roulette",
+      "result": 200,
+      "date": "2024-08-03T00:00:00.000Z",
+      "rake": 20
     },
     {
-      "id": "4",
-      "color": "#FF33A1",
-      "name": "Incident D",
-      "createDate": "2023-08-11T14:20:00Z",
-      "updatedDated": "2023-08-12T15:50:00Z",
-      "createdBy": "Officer Davis"
+      "id": "game4",
+      "gameNum": "004",
+      "gameType": "Baccarat",
+      "result": -150,
+      "date": "2024-08-04T00:00:00.000Z",
+      "rake": 15
     },
     {
-      "id": "5",
-      "color": "#111",
-      "name": "asd",
-      "createDate": "2024-08-15T05:29:27.723Z",
-      "updatedDated": "2024-08-15T05:29:27.724Z",
-      "createdBy": "asd"
+      "id": "game5",
+      "gameNum": "005",
+      "gameType": "Slots",
+      "result": 1000,
+      "date": "2024-08-05T00:00:00.000Z",
+      "rake": 100
     },
     {
-      "id": "6",
-      "color": "#FF5733",
-      "name": "Incident F",
-      "createDate": "2023-08-12T18:00:00Z",
-      "updatedDated": "2023-08-13T19:30:00Z",
-      "createdBy": "Officer Brown"
+      "id": "game6",
+      "gameNum": "006",
+      "gameType": "Craps",
+      "result": 600,
+      "date": "2024-08-06T00:00:00.000Z",
+      "rake": 60
+    }
+  ],
+  "players": [
+    {
+      "id": "player1",
+      "fullName": "John Doe",
+      "inGameName": "JDMaster",
+      "weeklyBalance": 1500,
+      "totalBalance": 5000,
+      "weeklyRake": 300,
+      "phoneNumber": "1234567890",
+      "games": ["game1", "game2"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
     },
     {
-      "id": 5,
-      "color": "#aaa",
-      "name": "asd",
-      "createDate": "2024-08-15T05:30:10.693Z",
-      "updatedDated": "2024-08-15T05:30:10.693Z",
-      "createdBy": "asd"
+      "id": "player2",
+      "fullName": "Jane Smith",
+      "inGameName": "QueenJane",
+      "weeklyBalance": 1200,
+      "totalBalance": 4200,
+      "weeklyRake": 250,
+      "phoneNumber": "2345678901",
+      "games": ["game1", "game3"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
     },
     {
-      "id": -1,
-      "color": "#111",
-      "name": "as",
-      "createDate": "2024-08-15T05:56:48.037Z",
-      "updatedDated": "2024-08-15T05:56:48.037Z",
-      "createdBy": "asd"
+      "id": "player3",
+      "fullName": "Mike Johnson",
+      "inGameName": "MikeTheMan",
+      "weeklyBalance": 1800,
+      "totalBalance": 6800,
+      "weeklyRake": 400,
+      "phoneNumber": "3456789012",
+      "games": ["game2", "game4"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player4",
+      "fullName": "Emily Davis",
+      "inGameName": "EmilyD",
+      "weeklyBalance": 1300,
+      "totalBalance": 5300,
+      "weeklyRake": 280,
+      "phoneNumber": "4567890123",
+      "games": ["game1", "game5"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player5",
+      "fullName": "Robert Brown",
+      "inGameName": "RoboB",
+      "weeklyBalance": 1600,
+      "totalBalance": 6100,
+      "weeklyRake": 320,
+      "phoneNumber": "5678901234",
+      "games": ["game2", "game6"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player6",
+      "fullName": "Linda Wilson",
+      "inGameName": "LindaW",
+      "weeklyBalance": 1400,
+      "totalBalance": 5400,
+      "weeklyRake": 310,
+      "phoneNumber": "6789012345",
+      "games": ["game3", "game5"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player7",
+      "fullName": "Chris Lee",
+      "inGameName": "ChrisL",
+      "weeklyBalance": 1700,
+      "totalBalance": 5700,
+      "weeklyRake": 330,
+      "phoneNumber": "7890123456",
+      "games": ["game4", "game6"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player8",
+      "fullName": "Jessica Taylor",
+      "inGameName": "JessT",
+      "weeklyBalance": 1100,
+      "totalBalance": 4000,
+      "weeklyRake": 220,
+      "phoneNumber": "8901234567",
+      "games": ["game1", "game3"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player9",
+      "fullName": "David Anderson",
+      "inGameName": "DaveA",
+      "weeklyBalance": 2000,
+      "totalBalance": 7000,
+      "weeklyRake": 450,
+      "phoneNumber": "9012345678",
+      "games": ["game2", "game4"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player10",
+      "fullName": "Sarah Martinez",
+      "inGameName": "SariM",
+      "weeklyBalance": 1900,
+      "totalBalance": 6900,
+      "weeklyRake": 410,
+      "phoneNumber": "0123456789",
+      "games": ["game5", "game6"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player11",
+      "fullName": "Matthew Moore",
+      "inGameName": "MattM",
+      "weeklyBalance": 1700,
+      "totalBalance": 5700,
+      "weeklyRake": 360,
+      "phoneNumber": "1234567890",
+      "games": ["game3", "game4"],
+      "agentId": "agent1",
+      "adminName": "Admin1",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "player12",
+      "fullName": "Ashley Thomas",
+      "inGameName": "AshT",
+      "weeklyBalance": 1300,
+      "totalBalance": 5300,
+      "weeklyRake": 270,
+      "phoneNumber": "2345678901",
+      "games": ["game2", "game6"],
+      "agentId": "agent2",
+      "adminName": "Admin2",
+      "createDate": "2024-01-01T00:00:00.000Z",
+      "updatedDated": "2024-01-02T00:00:00.000Z"
+    }
+  ],
+  "agents": [
+    {
+      "id": "agent1",
+      "fullName": "Agent Alpha",
+      "inGameName": "AlphaAgent",
+      "weeklyBalance": 10000,
+      "weeklyRake": 2000,
+      "games": ["game1", "game3"],
+      "agentId": "agent1",
+      "rakePercentage": 15,
+      "players": [
+        "player1",
+        "player2",
+        "player3",
+        "player7",
+        "player8",
+        "player11",
+        "agent1"
+      ]
+    },
+    {
+      "id": "agent2",
+      "fullName": "Agent Bravo",
+      "inGameName": "BravoAgent",
+      "weeklyBalance": 12000,
+      "weeklyRake": 2500,
+      "games": ["game4", "game5"],
+      "agentId": "agent2",
+      "rakePercentage": 20,
+      "players": [
+        "player4",
+        "player5",
+        "player6",
+        "player9",
+        "player10",
+        "player12",
+        "agent2"
+      ]
     }
   ]
 }

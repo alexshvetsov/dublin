@@ -1,0 +1,56 @@
+<div class="table" *ngIf="players$ | async as players; else noData">
+  <table mat-table [dataSource]="players" class="mat-elevation-z8">
+    
+    <!-- In-Game Name Column -->
+    <ng-container matColumnDef="inGameName">
+      <th mat-header-cell *matHeaderCellDef>In-Game Name</th>
+      <td mat-cell *matCellDef="let player">{{ player.inGameName }}</td>
+    </ng-container>
+
+    <!-- Weekly Balance Column -->
+    <ng-container matColumnDef="weeklyBalance">
+      <th mat-header-cell *matHeaderCellDef>Weekly Balance</th>
+      <td mat-cell *matCellDef="let player">{{ player.weeklyBalance | currency }}</td>
+    </ng-container>
+
+    <!-- Weekly Rake Column -->
+    <ng-container matColumnDef="weeklyRake">
+      <th mat-header-cell *matHeaderCellDef>Weekly Rake</th>
+      <td mat-cell *matCellDef="let player">{{ player.weeklyRake | currency }}</td>
+    </ng-container>
+
+    <!-- Rake Percentage Column -->
+    <ng-container matColumnDef="rakePercentage">
+      <th mat-header-cell *matHeaderCellDef>Rake Percentage</th>
+      <td mat-cell *matCellDef="let player">{{ agentRakePercentage }}%</td>
+    </ng-container>
+
+    <!-- Agent Share Column -->
+    <ng-container matColumnDef="agentShare">
+      <th mat-header-cell *matHeaderCellDef>Agent Share</th>
+      <td mat-cell *matCellDef="let player">
+        {{ (player.weeklyRake * agentRakePercentage) / 100 | currency }}
+      </td>
+    </ng-container>
+
+    <!-- Table Header Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <!-- Table Data Row -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="navigateToIncident(row)"></tr>
+
+    <!-- Sum Row -->
+    <tr>
+      <td mat-cell *matCellDef="let player" colspan="1"><strong>Total</strong></td>
+      <td mat-cell *matCellDef="let player">{{ getTotal(players, 'weeklyBalance') | currency }}</td>
+      <td mat-cell *matCellDef="let player">{{ getTotal(players, 'weeklyRake') | currency }}</td>
+      <td mat-cell *matCellDef="let player"></td> <!-- Empty for Rake Percentage -->
+      <td mat-cell *matCellDef="let player">{{ getTotalAgentShare(players) | currency }}</td>
+    </tr>
+
+  </table>
+</div>
+
+<ng-template #noData>
+  <p>No players to show</p>
+</ng-template>

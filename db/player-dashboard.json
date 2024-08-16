@@ -1,0 +1,42 @@
+{
+  "playerData": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "username": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "userData": {
+        "name": "string",
+        "nickname": "string",
+        "agentPhoneNumber": "string",
+        "agentName": "string",
+        "weeklyBalance": "string",
+        "totalBalance": "string"
+      }
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "gamesData": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "username": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "games": [
+        {
+          "id": "number",
+          "gameType": "string",
+          "result": "number",
+          "date": "Date"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}

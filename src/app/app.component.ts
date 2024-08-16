@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,5 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'TA9';
+  title = 'poker management';
+  constructor(private router: Router) {}
+
+  navigate(url: string): void {
+    this.router.navigate([url]);
+  }
 }

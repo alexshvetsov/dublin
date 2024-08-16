@@ -75,12 +75,15 @@ export class IncidentComponent {
   }
 
   onSubmit(): void {
-    const newIncident: Incident = this.createNewIncident();
-    if (newIncident.id > 0) {
-      this.updateIncident(newIncident);
-    } else {
-      this.addIncident(newIncident);
-    }
+    // const newIncident: Incident = this.createNewIncident();
+    // if (newIncident.id > 0) {
+    //   this.updateIncident(newIncident);
+    // } else {
+    //   this.addIncident(newIncident);
+    // }
+    this.incidentService
+      .getIncidents1()
+      .subscribe((message) => console.log(message));
   }
 
   createNewIncident(): Incident {
