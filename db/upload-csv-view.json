@@ -1,0 +1,42 @@
+{
+  "addGame": {
+    "req": "Post",
+    "reqData": {
+      "body": {
+        "csvFile": "csvFile"
+      }
+    },
+    "resData": {
+      "status": 201,
+      "gameMetaData": {
+        "GameCode": "string",
+        "DateStarted": "date",
+        "DateEnded": "date",
+        "GameType": "string",
+        "BigBlind": "number",
+        "TotalTips": "number"
+      },
+      "playersData": [
+        {
+          "Hands": "number",
+          "Profit": "number",
+          "BuyIn": "number",
+          "Tips": "number",
+          "previousBalance": "number",
+          "currentBalance": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "approveGame": {
+    "req": "Post",
+    "reqData": {
+      "body": {
+        "csvFile": "csvFile"
+      }
+    },
+    "resData": { "statusCode": "201", "success": "true" },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
