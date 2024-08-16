@@ -1,0 +1,44 @@
+{
+  "addExpense": {
+    "req": "post",
+    "reqData": { "comment": "string", "amount": "number" },
+    "resData": {
+      "statusCode": 201,
+      "expensesData": [{ "comment": "string", "amount": "number" }]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "currentExpenses": {
+    "req": "Get",
+    "reqData": {},
+    "resData": {
+      "statusCode": 200,
+      "expensesData": [
+        {
+          "comment": "string",
+          "amount": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "expensesByDate": {
+    "req": "Get",
+    "reqData": {
+      "param": {
+        "startDate": "date",
+        "endDate": "date"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "expensesData": [
+        {
+          "comment": "string",
+          "amount": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
