@@ -16,8 +16,11 @@ export class IncidentsService {
   getIncidents(): Observable<Incident[]> {
     return this.http.get<Incident[]>(this.baseUrl);
   }
-  getIncidents1(): Observable<string> {
-    return this.http.get<string>(`${environment.apiUrl1}test`);
+  getIncidents1(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl1}user/games`);
+  }
+  getIncidents2(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl1}user/data`);
   }
 
   getIncidentsByName(nameParam: string): Observable<Incident[]> {

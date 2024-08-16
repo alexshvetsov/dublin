@@ -1,0 +1,66 @@
+{
+  "addPayment": {
+    "req": "post",
+    "reqData": {
+      "payment": {
+        "amount": "number",
+        "payerId": "string",
+        "receiverId": "string",
+        "updatedBalancePayer": "number",
+        "updatedBalanceReceiver": "number"
+      }
+    },
+    "resData": {
+      "statusCode": 201,
+      "paymentsData": [
+        {
+          "amount": "number",
+          "payerId": "string",
+          "receiverId": "string",
+          "updatedBalancePayer": "number",
+          "updatedBalanceReceiver": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "currentPayment": {
+    "req": "Get",
+    "reqData": {},
+    "resData": {
+      "statusCode": 200,
+      "paymentsData": [
+        {
+          "amount": "number",
+          "payerId": "string",
+          "receiverId": "string",
+          "updatedBalancePayer": "number",
+          "updatedBalanceReceiver": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "paymentsByDate": {
+    "req": "Get",
+    "reqData": {
+      "param": {
+        "startDate": "date",
+        "endDate": "date"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "paymentsData": [
+        {
+          "amount": "number",
+          "payerId": "string",
+          "receiverId": "string",
+          "updatedBalancePayer": "number",
+          "updatedBalanceReceiver": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
