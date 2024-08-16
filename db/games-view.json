@@ -1,0 +1,40 @@
+{
+    "currentGames": {
+      "req": "Get",
+      "reqData": {},
+      "resData": {
+        "statusCode": 200,
+        "gamesData": [{
+            "GameCode": "string",
+            "DateStarted": "date",
+            "DateEnded": "date",
+            "GameType": "string",
+            "BigBlind": "number",
+            "TotalTips": "number"
+        }]
+      },
+      "errorData": { "statusCode": "number", "message": "string" }
+    },
+    "gamesByDate": {
+      "req": "Get",
+      "reqData": {
+        "param": {
+          "startDate": "date",
+          "endDate": "date"
+        }
+      },
+      "resData": {
+        "statusCode": 200,
+        "gamesData": [{
+            "GameCode": "string",
+            "DateStarted": "date",
+            "DateEnded": "date",
+            "GameType": "string",
+            "BigBlind": "number",
+            "TotalTips": "number"
+        }]
+      },
+      "errorData": { "statusCode": "number", "message": "string" }
+    }
+  }
+  
