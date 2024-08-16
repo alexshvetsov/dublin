@@ -22,47 +22,5 @@
       }
     },
     "errorData": { "statusCode": "number", "message": "string" }
-  },
-  "playerAgentView": {
-    "playerData": {
-      "req": "Get",
-      "reqData": {
-        "params": {
-          "username": "string"
-        }
-      },
-      "resData": {
-        "statusCode": 200,
-        "userData": {
-          "name": "string",
-          "nickname": "string",
-          "weeklyBalance": "string",
-          "totalBalance": "string",
-          "weeklyRake": "number"
-        }
-      },
-      "errorData": { "statusCode": "number", "message": "string" }
-    },
-    "gamesData": {
-      "req": "Get",
-      "reqData": {
-        "params": {
-          "username": "string"
-        }
-      },
-      "resData": {
-        "statusCode": 200,
-        "games": [
-          {
-            "id": "number",
-            "gameType": "string",
-            "result": "number",
-            "date": "Date",
-            "rake": "number"
-          }
-        ]
-      },
-      "errorData": { "statusCode": "number", "message": "string" }
-    }
   }
 }

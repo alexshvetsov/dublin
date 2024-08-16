@@ -1,0 +1,93 @@
+{
+  "playerData": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "username": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "userData": {
+        "userType": "string",
+        "firstName": "string",
+        "familyName": "string",
+        "phoneNumber": "string",
+        "phoneId": "string",
+        "agentId": "string",
+        "adminId": "string",
+        "nickname": "string",
+        "createdDate": "date",
+        "updatedDate": "date",
+        "weeklyBalance": "string",
+        "totalBalance": "string",
+        "weeklyRake": "number"
+      }
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "gamesData": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "username": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "games": [
+        {
+          "id": "number",
+          "gameType": "string",
+          "result": "number",
+          "date": "Date",
+          "rake": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+
+  "addPlayer": {
+    "req": "Post",
+    "reqData": {
+      "body": {
+        "userData": {
+          "userType": "string",
+          "firstName": "string",
+          "familyName": "string",
+          "phoneNumber": "string",
+          "phoneId": "string",
+          "agentId": "string",
+          "adminId": "string",
+          "nickname": "string",
+          "createdDate": "date",
+          "updatedDate": "date"
+        }
+      }
+    },
+    "resData": { "status": 201, "success": true },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "updatePlayer": {
+    "req": "Put",
+    "reqData": {
+      "body": {
+        "userData": {
+          "userType": "string",
+          "firstName": "string",
+          "familyName": "string",
+          "phoneNumber": "string",
+          "phoneId": "string",
+          "agentId": "string",
+          "adminId": "string",
+          "nickname": "string",
+          "createdDate": "date",
+          "updatedDate": "date"
+        }
+      }
+    },
+    "resData": { "status": 201, "success": true },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
