@@ -1,0 +1,37 @@
+{
+  "currentWeekBankBalance": {
+    "req": "Get",
+    "reqData": {},
+    "resData": {
+      "statusCode": 200,
+      "bankBalance": {
+        "cashGameTotalRake": "number",
+        "cashGameTotalAgentRake": "number",
+        "totalAdminRake": "number",
+        "totalTournamentRevenue": "number",
+        "expenses": "number"
+      }
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "WeekBankBalanceByDate": {
+    "req": "Get",
+    "reqData": {
+      "param": {
+        "startDate": "date",
+        "endDate": "date"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "bankBalance": {
+        "cashGameTotalRake": "number",
+        "cashGameTotalAgentRake": "number",
+        "totalAdminRake": "number",
+        "totalTournamentRevenue": "number",
+        "expenses": "number"
+      }
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
