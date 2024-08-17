@@ -1,0 +1,37 @@
+// this is used for autocomplete inputs
+{
+  "getForAutocomplete": {
+    "req": "get",
+    "reqData": {
+      "param": {
+        "value": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "players": [{ "username": "string", "id": "string" }]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "palyersForDashboardByValue": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "value": "string"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "players": [
+        {
+          "playerName": "string",
+          "balance": "string",
+          "weeklyRake": "number",
+          "agentRakePercentage": "number",
+          "agentActualRake": "number"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
+  }
+}
