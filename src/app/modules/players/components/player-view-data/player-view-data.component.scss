@@ -1,0 +1,27 @@
+.balance-row {
+  display: flex;
+  justify-content: space-between; /* Ensure the balance items are spaced out */
+  margin-bottom: 20px; /* Space between balance and the rest of the content */
+}
+
+.balance-item {
+  flex: 1 1 45%; /* Adjust width as needed */
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 10px;
+}
+
+.player-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.info-item {
+  flex: 1 1 200px;
+  min-width: 150px;
+  padding: 8px;
+}

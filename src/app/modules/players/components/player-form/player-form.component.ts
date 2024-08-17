@@ -9,6 +9,9 @@ import {
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Player } from '../../../../utilities/models/player';
+import { PlayerView } from '../../../../utilities/models/player-view-interfaces';
+import { UserType } from '../../../constants/user-type';
+import { AuthService } from '../../../../utilities/services/auth.service';
 
 @Component({
   selector: 'app-player-form',
@@ -19,12 +22,12 @@ import { Player } from '../../../../utilities/models/player';
 export class PlayerFormComponent implements OnInit, OnChanges {
   adminName: string = 'admin1';
   playerFormGroup: FormGroup = this.createPlayerFormGroup();
-  @Input() player?: Player;
+  @Input() player?: PlayerView;
 
   @Output() playerFormSubmitted: EventEmitter<Player> =
     new EventEmitter<Player>();
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     if (this.player) {
@@ -32,13 +35,14 @@ export class PlayerFormComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('asdad', this.player);
-    console.log('asdad', changes['player']);
     if (changes['player'].currentValue) {
-      this.player = changes['player'].currentValue as Player;
-      this.assignFormValues();
+      this.player = changes['player'].currentValue as PlayerView;
+      if (this.authService.userType === UserType.Admin) {
+        this.assignFormValues();
+      }
     }
   }
+
   assignFormValues(): void {
     if (this.player) {
       this.playerFormGroup.patchValue({

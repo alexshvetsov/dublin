@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayersService } from './players.service';
+import { PlayersService } from '../../utilities/services/players.service';
 import { AgentsService } from '../../utilities/services/agents.service';
 import { Observable } from 'rxjs';
 import { Player } from '../../utilities/models/player';

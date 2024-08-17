@@ -3,6 +3,7 @@ import { Game } from '../../../../utilities/models/game';
 import { GamesService } from '../../../../utilities/services/games.service';
 import { Player } from '../../../../utilities/models/player';
 import { Observable } from 'rxjs';
+import { GamePlayerView } from '../../../../utilities/models/player-view-interfaces';
 
 @Component({
   selector: 'app-player-games-table',
@@ -11,11 +12,11 @@ import { Observable } from 'rxjs';
   styleUrl: './player-games-table.component.scss',
 })
 export class PlayerGamesTableComponent {
-  @Input() player?: Player;
+  @Input({ required: true }) games!: GamePlayerView[];
   displayedColumns: string[] = ['gameNum', 'gameType', 'result', 'date'];
-  games$: Observable<Game[]> = this.gamesService.getGamesByIds(
-    this.player?.games || ['asdad']
-  );
+  // games$: Observable<Game[]> = this.gamesService.getGamesByIds(
+  //   this.player?.games || ['asdad']
+  // );
 
   constructor(private gamesService: GamesService) {}
 }

@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { Player } from '../../../../utilities/models/player';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PlayersService } from '../../players.service';
+import { PlayersService } from '../../../../utilities/services/players.service';
+import { AuthService } from '../../../../utilities/services/auth.service';
+import {
+  GamePlayerView,
+  PlayerView,
+} from '../../../../utilities/models/player-view-interfaces';
+import { UserType } from '../../../constants/user-type';
 
 @Component({
   selector: 'app-player',
@@ -11,12 +17,15 @@ import { PlayersService } from '../../players.service';
 })
 export class PlayerComponent {
   adminName: string = 'admin1';
-  player?: Player;
+  player!: PlayerView;
+  games!: GamePlayerView[];
+  userType: string = this.authcService.userType || UserType.Player;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private playerService: PlayersService
+    private playerService: PlayersService,
+    private authcService: AuthService
   ) {
     this.getPlayerFromDB();
   }
@@ -28,10 +37,18 @@ export class PlayerComponent {
       this.router.navigate(['players']);
     }
     if (!this.player && id) {
-      this.playerService.getPlayersById(id).subscribe((player: Player[]) => {
-        console.log('this.player', this.player);
-        this.player = player[0];
-      });
+      this.playerService
+        .getPlayerByUserNameForPlayer(id)
+        .subscribe((player: PlayerView) => {
+          console.log('this.player', this.player);
+          this.player = player;
+        });
+      this.playerService
+        .getGamesByUserNameForPlayer(id)
+        .subscribe((games: GamePlayerView[]) => {
+          console.log('this.games', games);
+          this.games = games;
+        });
     }
   }
 

@@ -1,0 +1,20 @@
+<div class="balance-row">
+  <div class="balance-item total-balance">
+    <b>Total Balance:*does not include weekly balance</b>
+    {{ player.totalBalance || 0 }}
+  </div>
+  <div class="balance-item weekly-balance">
+    <b>Weekly Balance:</b> {{ player.weeklyBalance || 0 }}
+  </div>
+</div>
+
+<div class="player-info">
+  <div class="info-item"><strong>Name:</strong> {{ player.name }}</div>
+  <div class="info-item"><strong>Nickname:</strong> {{ player.nickname }}</div>
+  <div class="info-item">
+    <strong>Agent Phone Number:</strong> {{ player.agentPhoneNumber }}
+  </div>
+  <div class="info-item">
+    <strong>Agent Name:</strong> {{ player.agentName }}
+  </div>
+</div>
