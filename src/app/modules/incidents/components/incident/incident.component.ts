@@ -83,7 +83,10 @@ export class IncidentComponent {
     // }
     this.incidentService
       .getIncidents1()
-      .subscribe((message) => console.log(message));
+      .subscribe((message) => console.log('getIncidents1', message));
+    this.incidentService
+      .getIncidents2()
+      .subscribe((message) => console.log('getIncidents2,', message));
   }
 
   createNewIncident(): Incident {

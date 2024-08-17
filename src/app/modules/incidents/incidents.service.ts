@@ -16,13 +16,15 @@ export class IncidentsService {
   getIncidents(): Observable<Incident[]> {
     return this.http.get<Incident[]>(this.baseUrl);
   }
+  getIncidents11(): Observable<string> {
+    return this.http.get<string>(`${environment.apiUrl1}test`);
+  }
   getIncidents1(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl1}user/games`);
+    return this.http.get<any>(`${environment.apiUrl1}user/games?username=asda`);
   }
   getIncidents2(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl1}user/data`);
+    return this.http.get<any>(`${environment.apiUrl1}user/data?username=asda`);
   }
-
   getIncidentsByName(nameParam: string): Observable<Incident[]> {
     // this should filter on the server side
     // but i had problem with this functionality with json-server package

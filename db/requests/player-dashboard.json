@@ -38,5 +38,27 @@
       ]
     },
     "errorData": { "statusCode": "number", "message": "string" }
+  },
+  "gamesDataByDate": {
+    "req": "Get",
+    "reqData": {
+      "params": {
+        "username": "string",
+        "startDate": "date",
+        "endDate": "date"
+      }
+    },
+    "resData": {
+      "statusCode": 200,
+      "games": [
+        {
+          "id": "number",
+          "gameType": "string",
+          "result": "number",
+          "date": "Date"
+        }
+      ]
+    },
+    "errorData": { "statusCode": "number", "message": "string" }
   }
 }
