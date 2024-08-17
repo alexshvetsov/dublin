@@ -5,14 +5,14 @@ import { environment } from '../../../enviroments/enviroments';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AgentsService {
   private baseUrl = environment.apiUrl + 'agents';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getAgentById(id:string): Observable<Agent> {
-    const url = `${this.baseUrl}/${id}`;
+  getAgentById(username: string): Observable<Agent> {
+    const url = `${this.baseUrl}/${username}`;
     return this.http.get<Agent>(url);
   }
 }

@@ -10,6 +10,13 @@
     <td mat-cell *matCellDef="let game; let i = index">{{ i + 1 }}</td>
   </ng-container>
 
+  <!-- rake  Column -->
+  <ng-container *ngIf="displayedColumns.includes('rake')"></ng-container>
+  <ng-container matColumnDef="rake">
+    <th mat-header-cell *matHeaderCellDef>Rake</th>
+    <td mat-cell *matCellDef="let game">{{ game.rake }}</td>
+  </ng-container>
+
   <!-- Game Type Column -->
   <ng-container matColumnDef="gameType">
     <th mat-header-cell *matHeaderCellDef>Game Type</th>
@@ -24,7 +31,7 @@
 
   <!-- Date Column -->
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <th mat-header-cell *matHeaderCellDef>Created Date</th>
     <td mat-cell *matCellDef="let game">
       {{ game.date | date : "dd/MM/yyyy" }}
     </td>
@@ -38,5 +45,5 @@
 </table>
 
 <ng-template #noData>
-  <p>No players to show</p>
+  <p>No games to show</p>
 </ng-template>

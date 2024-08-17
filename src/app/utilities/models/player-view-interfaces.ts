@@ -1,18 +1,23 @@
 export interface PlayerView {
   name: string;
   nickname: string;
-  agentPhoneNumber: string;
-  agentName: string;
-  weeklyBalance: string;
-  totalBalance: string;
+  agentPhoneNumber?: string;
+  agentName?: string;
+  weeklyBalance: number;
+  totalBalance: number;
 }
 export interface GamePlayerView {
   id: number;
   gameType: string;
   result: number;
-  date: Date;
+  createdTime: Date;
 }
-export interface AgentPlayerView {}
-export interface GameAgentPlayerView {}
+export interface AgentPlayerView extends PlayerView {
+  weeklyRake: number;
+}
+
+export interface GameAgentPlayerView extends GamePlayerView {
+  rake: number;
+}
 export interface AdminPlayerView {}
 export interface GameAdminPlayerView {}

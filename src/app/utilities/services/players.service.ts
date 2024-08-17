@@ -4,13 +4,18 @@ import { Observable, map } from 'rxjs';
 import { environment } from '../../../enviroments/enviroments';
 import { Agent } from '../models/agent';
 import { Player } from '../models/player';
-import { GamePlayerView, PlayerView } from '../models/player-view-interfaces';
+import {
+  AgentPlayerView,
+  GamePlayerView,
+  PlayerView,
+} from '../models/player-view-interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayersService {
   private baseUrl = environment.apiUrl + 'players';
+  private baseUrl1 = environment.apiUrl1 + 'games';
   constructor(private http: HttpClient) {}
 
   getPlayersByAgentId(agentIdParam: string): Observable<Player[]> {
@@ -28,10 +33,11 @@ export class PlayersService {
     // change once api ready for now localhost3000
     return this.http.get<PlayerView>(this.baseUrl);
   }
-  getGamesByUserNameForPlayer(username: string): Observable<GamePlayerView[]> {
+
+  getPlayerByUserNameForAgent(username: string): Observable<AgentPlayerView> {
     // const url = `${this.baseUrl}?username=${username}`;
-    // return this.http.get<GamePlayerView>(url);
+    // return this.http.get<PlayerView>(url);
     // change once api ready for now localhost3000
-    return this.http.get<GamePlayerView[]>(this.baseUrl + 'games');
+    return this.http.get<AgentPlayerView>(this.baseUrl + 'Agent');
   }
 }

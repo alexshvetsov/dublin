@@ -9,12 +9,22 @@
         routerLinkActive="active-link"
         >Players</a
       >
-      <a mat-list-item routerLink="/about" routerLinkActive="active-link"
-        >About</a
-      >
-      <a mat-list-item routerLink="/contact" routerLinkActive="active-link"
-        >Contact</a
-      >
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select
+          [(value)]="selectDate"
+          (selectionChange)="onSelectionChange($event)"
+        >
+          <mat-option
+            *ngFor="let option of dateSelectOptions"
+            [value]="option.value"
+          >
+            {{ option.label | date : "dd/MM/yyyy" }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-nav-list>
   </mat-sidenav>
 

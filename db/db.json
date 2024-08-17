@@ -4,10 +4,10 @@
     "nickname": "string",
     "agentPhoneNumber": "string",
     "agentName": "string",
-    "weeklyBalance": "string",
-    "totalBalance": "string"
+    "weeklyBalance": 122,
+    "totalBalance": 122
   },
-  "playersgames": [
+  "gamesPlayers": [
     {
       "id": 1,
       "gameType": "holdem",
@@ -40,6 +40,57 @@
     },
     {
       "id": 6,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    }
+  ],
+  "playersAgent": {
+    "name": "string",
+    "nickname": "string",
+    "weeklyBalance": 122,
+    "totalBalance": 1222,
+    "weeklyRake": 1222
+  },
+  "gamesPlayersAgent": [
+    {
+      "id": 1,
+      "rake":212,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "rake":612,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "rake":152,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "rake":124,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "rake":312,
+      "gameType": "holdem",
+      "result": 150,
+      "date": "2024-08-01T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "rake":1212,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"

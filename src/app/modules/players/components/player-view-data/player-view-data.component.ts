@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { PlayerView } from '../../../../utilities/models/player-view-interfaces';
+import {
+  AgentPlayerView,
+  PlayerView,
+} from '../../../../utilities/models/player-view-interfaces';
 import { AuthService } from '../../../../utilities/services/auth.service';
 import { UserType } from '../../../constants/user-type';
 
@@ -10,8 +13,7 @@ import { UserType } from '../../../constants/user-type';
   styleUrl: './player-view-data.component.scss',
 })
 export class PlayerViewDataComponent {
-  @Input({ required: true }) player!: PlayerView;
-userType: string = this.authService.userType || UserType.Player;
-  constructor(private authService:AuthService) {
-  }
+  @Input({ required: true }) player!: any;
+  userType: string = this.authService.userType || UserType.Player;
+  constructor(private authService: AuthService) {}
 }
