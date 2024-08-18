@@ -1,0 +1,42 @@
+<div class="table-container">
+    <table
+      mat-table
+      [dataSource]="(dataSource$ | async) || []"
+      class="mat-elevation-z8"
+    >
+      <!-- Amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount | currency }}</td>
+      </ng-container>
+  
+      <!-- Payer ID Column -->
+      <ng-container matColumnDef="payerId">
+        <th mat-header-cell *matHeaderCellDef>Payer ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.payerId }}</td>
+      </ng-container>
+  
+      <!-- Receiver ID Column -->
+      <ng-container matColumnDef="receiverId">
+        <th mat-header-cell *matHeaderCellDef>Receiver ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.receiverId }}</td>
+      </ng-container>
+  
+      <!-- Updated Balance Payer Column -->
+      <ng-container matColumnDef="updatedBalancePayer">
+        <th mat-header-cell *matHeaderCellDef>Updated Balance (Payer)</th>
+        <td mat-cell *matCellDef="let element">{{ element.updatedBalancePayer | currency }}</td>
+      </ng-container>
+  
+      <!-- Updated Balance Receiver Column -->
+      <ng-container matColumnDef="updatedBalanceReceiver">
+        <th mat-header-cell *matHeaderCellDef>Updated Balance (Receiver)</th>
+        <td mat-cell *matCellDef="let element">{{ element.updatedBalanceReceiver | currency }}</td>
+      </ng-container>
+  
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  

@@ -1,0 +1,48 @@
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      formControlName="amount"
+      type="number"
+      placeholder="Enter Amount"
+    />
+    <mat-error *ngIf="paymentForm.get('amount')?.hasError('required')">
+      Amount is required.
+    </mat-error>
+    <mat-error *ngIf="paymentForm.get('amount')?.hasError('min')">
+      Amount must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <app-player-autocomplete-input [control]="payerIdControl" />
+
+  <app-player-autocomplete-input [control]="receiverIdControl" />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Updated Balance (Payer)</mat-label>
+    <input
+      matInput
+      formControlName="updatedBalancePayer"
+      placeholder="Updated Balance"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Updated Balance (Receiver)</mat-label>
+    <input
+      matInput
+      formControlName="updatedBalanceReceiver"
+      placeholder="Updated Balance"
+    />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="paymentForm.invalid"
+  >
+    Submit Payment
+  </button>
+</form>

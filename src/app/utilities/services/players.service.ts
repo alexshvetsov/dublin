@@ -9,6 +9,7 @@ import {
   GamePlayerView,
   PlayerView,
 } from '../models/player-view-interfaces';
+import { SelectOption } from '../models/select-option';
 
 @Injectable({
   providedIn: 'root',
@@ -40,4 +41,12 @@ export class PlayersService {
     // change once api ready for now localhost3000
     return this.http.get<AgentPlayerView>(this.baseUrl + 'Agent');
   }
+
+  getPlayersForAutocomplete(username: string): Observable<SelectOption[]> {
+    // const url = `${this.baseUrl}?username=${username}`;
+    // return this.http.get<PlayerView>(url);
+    // change once api ready for now localhost3000
+    return this.http.get<SelectOption[]>(this.baseUrl+'autocomplete');
+  }
+
 }

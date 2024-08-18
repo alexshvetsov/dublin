@@ -1,0 +1,18 @@
+<mat-form-field appearance="fill">
+  <mat-label>Player</mat-label>
+  <input
+    type="text"
+    matInput
+    [formControl]="control"
+    [matAutocomplete]="auto"
+    placeholder="Select a player"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let player of filteredPlayers$ | async"
+      [value]="player.value"
+    >
+      {{ player.label }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

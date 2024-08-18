@@ -30,10 +30,10 @@ export class ExpensesFormComponent {
     if (this.expenseForm.valid) {
       const expense: Expense = this.expenseForm.getRawValue();
       this.formSubmit.emit(expense);
-      this.expenseService
-        .addExpenses(expense)
-        .subscribe((value) => console.log(value));
-      this.expenseForm = this.createExpenseForm();
+      this.expenseService.addExpenses(expense).subscribe((value) => {
+        console.log(value);
+        this.expenseForm = this.createExpenseForm();
+      });
     } else {
       console.error('Form is invalid');
     }

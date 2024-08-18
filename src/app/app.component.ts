@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { NgModel } from '@angular/forms';
 import { BankViewService } from './utilities/services/bank-view.service';
 import { ExpenseService } from './utilities/services/expense.service';
+import { PaymentsService } from './utilities/services/payments.service';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import { ExpenseService } from './utilities/services/expense.service';
     CurrentDateService,
     BankViewService,
     ExpenseService,
+    PaymentsService,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

@@ -215,5 +215,64 @@
       "amount": 12,
       "date": "2024-08-18T21:42:08.261Z"
     }
+  ],
+  "payments": [
+    {
+      "amount": 100,
+      "payerId": "1",
+      "receiverId": "2",
+      "updatedBalancePayer": 1000,
+      "updatedBalanceReceiver": 1100
+    },
+    {
+      "amount": 200,
+      "payerId": "2",
+      "receiverId": "3",
+      "updatedBalancePayer": 800,
+      "updatedBalanceReceiver": 1300
+    },
+    {
+      "amount": 300,
+      "payerId": "3",
+      "receiverId": "4",
+      "updatedBalancePayer": 500,
+      "updatedBalanceReceiver": 1600
+    },
+    {
+      "amount": 400,
+      "payerId": "4",
+      "receiverId": "5",
+      "updatedBalancePayer": 100,
+      "updatedBalanceReceiver": 1900
+    },
+    {
+      "amount": 500,
+      "payerId": "5",
+      "receiverId": "6",
+      "updatedBalancePayer": 0,
+      "updatedBalanceReceiver": 2000
+    },
+    {
+      "id": "25c7",
+      "amount": 0,
+      "payerId": "12",
+      "receiverId": "asd",
+      "updatedBalancePayer": "12",
+      "updatedBalanceReceiver": "12"
+    }
+  ],
+  "playersautocomplete": [
+    {
+      "value": "asd",
+      "label": "asd"
+    },
+    {
+      "value": "12",
+      "label": "12"
+    },
+    {
+      "value": "asdaqw",
+      "label": "asdaqw"
+    }
   ]
 }

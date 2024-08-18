@@ -39,5 +39,12 @@ export const routes: Routes = [
         (m) => m.ExpensesViewModule
       ),
   },
+  {
+    path: 'payments',
+    loadChildren: () =>
+      import('./modules/payments/payments.module').then(
+        (m) => m.PaymentsModule
+      ),
+  },
   // { path: '**', redirectTo: 'incidents' },
 ];
