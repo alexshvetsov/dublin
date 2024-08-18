@@ -46,5 +46,12 @@ export const routes: Routes = [
         (m) => m.PaymentsModule
       ),
   },
+  {
+    path: 'csv-upload',
+    loadChildren: () =>
+      import('./modules/csv-upload/csv-upload.module').then(
+        (m) => m.CsvUploadModule
+      ),
+  },
   // { path: '**', redirectTo: 'incidents' },
 ];

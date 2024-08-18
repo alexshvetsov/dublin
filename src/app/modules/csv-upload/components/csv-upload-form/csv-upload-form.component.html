@@ -1,0 +1,16 @@
+<form [formGroup]="csvForm" (ngSubmit)="onSubmit()" class="csv-form">
+    <div class="file-input-container">
+      <label for="file-upload" class="file-label">Upload CSV</label>
+      <input
+        id="file-upload"
+        type="file"
+        (change)="onFileSelected($event)"
+        accept=".csv"
+      />
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!selectedFile">
+      Submit CSV
+    </button>
+  </form>
+  

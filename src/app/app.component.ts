@@ -18,6 +18,7 @@ import { NgModel } from '@angular/forms';
 import { BankViewService } from './utilities/services/bank-view.service';
 import { ExpenseService } from './utilities/services/expense.service';
 import { PaymentsService } from './utilities/services/payments.service';
+import { CsvUploadService } from './utilities/services/csv-upload.service';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ import { PaymentsService } from './utilities/services/payments.service';
     BankViewService,
     ExpenseService,
     PaymentsService,
+    CsvUploadService,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

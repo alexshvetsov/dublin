@@ -1,0 +1,30 @@
+<div class="table-container">
+    <table
+      mat-table
+      [dataSource]="(dataSource$ | async) || []"
+      class="mat-elevation-z8"
+    >
+      <!-- Nickname Column -->
+      <ng-container matColumnDef="nickname">
+        <th mat-header-cell *matHeaderCellDef>Nickname</th>
+        <td mat-cell *matCellDef="let element">{{ element.nickname }}</td>
+      </ng-container>
+  
+      <!-- Previous Balance Column -->
+      <ng-container matColumnDef="prevBalance">
+        <th mat-header-cell *matHeaderCellDef>Previous Balance</th>
+        <td mat-cell *matCellDef="let element">{{ element.prevBalance | currency }}</td>
+      </ng-container>
+  
+      <!-- Updated Balance Column -->
+      <ng-container matColumnDef="updatedBalance">
+        <th mat-header-cell *matHeaderCellDef>Updated Balance</th>
+        <td mat-cell *matCellDef="let element">{{ element.updatedBalance | currency }}</td>
+      </ng-container>
+  
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  
