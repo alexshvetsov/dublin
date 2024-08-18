@@ -1,0 +1,49 @@
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()" class="expense-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Comment</mat-label>
+    <input matInput formControlName="comment" placeholder="Enter comment" />
+    <mat-error *ngIf="expenseForm.get('comment')?.hasError('required')">
+      Comment is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      formControlName="amount"
+      type="number"
+      placeholder="Enter amount"
+    />
+    <mat-error *ngIf="expenseForm.get('amount')?.hasError('required')">
+      Amount is required.
+    </mat-error>
+    <mat-error *ngIf="expenseForm.get('amount')?.hasError('min')">
+      Amount must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="date"
+      placeholder="Choose a date"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="expenseForm.get('date')?.hasError('required')">
+      Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="expenseForm.invalid"
+  >
+    Submit
+  </button>
+</form>

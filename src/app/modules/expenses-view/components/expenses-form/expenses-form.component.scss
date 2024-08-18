@@ -1,0 +1,16 @@
+.expense-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  button {
+    align-self: flex-end;
+  }
+  

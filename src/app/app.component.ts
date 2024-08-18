@@ -16,6 +16,7 @@ import { MatSelectChange } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { NgModel } from '@angular/forms';
 import { BankViewService } from './utilities/services/bank-view.service';
+import { ExpenseService } from './utilities/services/expense.service';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ import { BankViewService } from './utilities/services/bank-view.service';
     GamesService,
     CurrentDateService,
     BankViewService,
+    ExpenseService,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

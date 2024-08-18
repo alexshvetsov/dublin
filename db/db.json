@@ -9,37 +9,37 @@
   },
   "gamesPlayers": [
     {
-      "id": 1,
+      "id": "1",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
@@ -54,42 +54,42 @@
   },
   "gamesPlayersAgent": [
     {
-      "id": 1,
+      "id": "1",
       "rake": 212,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "rake": 612,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "rake": 152,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "rake": 124,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "rake": 312,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "rake": 1212,
       "gameType": "holdem",
       "result": 150,
@@ -142,7 +142,78 @@
       "cashGameTotalAgentRake": 122,
       "totalAdminRake": 122,
       "totalTournamentRevenue": 122,
-      "expenses": 122
+      "expenses": 122,
+      "id": "1b7f"
+    }
+  ],
+  "gamesView": [
+    {
+      "GameCode": "GAME12345",
+      "DateStarted": "2024-08-01T00:00:00.000Z",
+      "DateEnded": "2024-08-01T00:00:00.000Z",
+      "GameType": "Texas Hold-em",
+      "BigBlind": 100,
+      "TotalTips": 500,
+      "id": "70a7"
+    },
+    {
+      "GameCode": "GAME12346",
+      "DateStarted": "2024-08-01T00:00:00.000Z",
+      "DateEnded": "2024-08-01T00:00:00.000Z",
+      "GameType": "Omaha",
+      "BigBlind": 200,
+      "TotalTips": 800,
+      "id": "ef44"
+    },
+    {
+      "GameCode": "GAME12348",
+      "DateStarted": "2024-08-01T00:00:00.000Z",
+      "DateEnded": "2024-08-01T00:00:00.000Z",
+      "GameType": "Texas Hold-em",
+      "BigBlind": 300,
+      "TotalTips": 1000,
+      "id": "8f5b"
+    },
+    {
+      "GameCode": "GAME12349",
+      "DateStarted": "2024-08-01T00:00:00.000Z",
+      "DateEnded": "2024-08-01T00:00:00.000Z",
+      "GameType": "Omaha Hi-Lo",
+      "BigBlind": 250,
+      "TotalTips": 750,
+      "id": "cabe"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "1",
+      "comment": "Office Supplies",
+      "amount": 100,
+      "date": "2023-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "comment": "Travel Expenses",
+      "amount": 250.5,
+      "date": "2023-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "comment": "Client Meeting",
+      "amount": 75.75,
+      "date": "2023-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "e067",
+      "comment": "asd",
+      "amount": 1,
+      "date": "2024-08-18T21:40:51.887Z"
+    },
+    {
+      "id": "6e53",
+      "comment": "12",
+      "amount": 12,
+      "date": "2024-08-18T21:42:08.261Z"
     }
   ]
 }

@@ -14,6 +14,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'gamesView',
+    loadComponent: () =>
+      import('./modules/games-view/games-view.component').then(
+        (m) => m.GamesViewComponent
+      ),
+  },
+  {
     path: 'incidents',
     loadChildren: () =>
       import('./modules/incidents/incidents.module').then(
@@ -24,6 +31,13 @@ export const routes: Routes = [
     path: 'players',
     loadChildren: () =>
       import('./modules/players/players.module').then((m) => m.PlayersModule),
+  },
+  {
+    path: 'expenses',
+    loadChildren: () =>
+      import('./modules/expenses-view/expenses-view.module').then(
+        (m) => m.ExpensesViewModule
+      ),
   },
   // { path: '**', redirectTo: 'incidents' },
 ];

@@ -1,0 +1,47 @@
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="(dataSource$ | async) || []"
+    class="mat-elevation-z8"
+  >
+    <!-- Game Code Column -->
+    <ng-container matColumnDef="GameCode">
+      <th mat-header-cell *matHeaderCellDef>Game Code</th>
+      <td mat-cell *matCellDef="let element">{{ element.GameCode }}</td>
+    </ng-container>
+
+    <!-- Date Started Column -->
+    <ng-container matColumnDef="DateStarted">
+      <th mat-header-cell *matHeaderCellDef>Date Started</th>
+      <td mat-cell *matCellDef="let element">{{ element.DateStarted | date: 'dd/MM/yyyy HH:mm' }}</td>
+    </ng-container>
+
+    <!-- Date Ended Column -->
+    <ng-container matColumnDef="DateEnded">
+      <th mat-header-cell *matHeaderCellDef>Date Ended</th>
+      <td mat-cell *matCellDef="let element">{{ element.DateEnded | date: 'dd/MM/yyyy HH:mm' }}</td>
+    </ng-container>
+
+    <!-- Game Type Column -->
+    <ng-container matColumnDef="GameType">
+      <th mat-header-cell *matHeaderCellDef>Game Type</th>
+      <td mat-cell *matCellDef="let element">{{ element.GameType }}</td>
+    </ng-container>
+
+    <!-- Big Blind Column -->
+    <ng-container matColumnDef="BigBlind">
+      <th mat-header-cell *matHeaderCellDef>Big Blind</th>
+      <td mat-cell *matCellDef="let element">{{ element.BigBlind }}</td>
+    </ng-container>
+
+    <!-- Total Tips Column -->
+    <ng-container matColumnDef="TotalTips">
+      <th mat-header-cell *matHeaderCellDef>Total Tips</th>
+      <td mat-cell *matCellDef="let element">{{ element.TotalTips | currency }}</td>
+    </ng-container>
+
+    <!-- Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
