@@ -55,45 +55,94 @@
   "gamesPlayersAgent": [
     {
       "id": 1,
-      "rake":212,
+      "rake": 212,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
       "id": 2,
-      "rake":612,
+      "rake": 612,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
       "id": 3,
-      "rake":152,
+      "rake": 152,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
       "id": 4,
-      "rake":124,
+      "rake": 124,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
       "id": 5,
-      "rake":312,
+      "rake": 312,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
     },
     {
       "id": 6,
-      "rake":1212,
+      "rake": 1212,
       "gameType": "holdem",
       "result": 150,
       "date": "2024-08-01T00:00:00.000Z"
+    }
+  ],
+  "agents": {
+    "rakePercentage": 20,
+    "players": [
+      {
+        "playerName": "John Doe",
+        "balance": "$1500",
+        "weeklyRake": 300,
+        "agentRakePercentage": 20,
+        "agentActualRake": 60
+      },
+      {
+        "playerName": "Jane Smith",
+        "balance": "$1200",
+        "weeklyRake": 250,
+        "agentRakePercentage": 20,
+        "agentActualRake": 50
+      },
+      {
+        "playerName": "Mike Johnson",
+        "balance": "$1800",
+        "weeklyRake": 400,
+        "agentRakePercentage": 20,
+        "agentActualRake": 80
+      },
+      {
+        "playerName": "Emily Davis",
+        "balance": "$1300",
+        "weeklyRake": 280,
+        "agentRakePercentage": 20,
+        "agentActualRake": 56
+      },
+      {
+        "playerName": "Robert Brown",
+        "balance": "$1600",
+        "weeklyRake": 320,
+        "agentRakePercentage": 20,
+        "agentActualRake": 64
+      }
+    ]
+  },
+  "bankView": [
+    {
+      "cashGameTotalRake": 122,
+      "cashGameTotalAgentRake": 122,
+      "totalAdminRake": 122,
+      "totalTournamentRevenue": 122,
+      "expenses": 122
     }
   ]
 }

@@ -15,6 +15,7 @@ import { CurrentDateService } from './utilities/services/current-date.service';
 import { MatSelectChange } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { NgModel } from '@angular/forms';
+import { BankViewService } from './utilities/services/bank-view.service';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { NgModel } from '@angular/forms';
     AgentsService,
     GamesService,
     CurrentDateService,
+    BankViewService,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

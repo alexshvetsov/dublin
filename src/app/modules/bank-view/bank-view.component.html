@@ -1,0 +1,49 @@
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="(dataSource$ | async) || []"
+    class="mat-elevation-z8"
+  >
+    <!-- Account Holder Column -->
+    <ng-container matColumnDef="cashGameTotalRake">
+      <th mat-header-cell *matHeaderCellDef>cash Game Total Rake</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.cashGameTotalRake }}
+      </td>
+    </ng-container>
+
+    <!-- Account Number Column -->
+    <ng-container matColumnDef="cashGameTotalAgentRake">
+      <th mat-header-cell *matHeaderCellDef>cash Game Total Agent Rake</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.cashGameTotalAgentRake }}
+      </td>
+    </ng-container>
+
+    <!-- Bank Name Column -->
+    <ng-container matColumnDef="totalAdminRake">
+      <th mat-header-cell *matHeaderCellDef>total Admin Rake</th>
+      <td mat-cell *matCellDef="let element">{{ element.totalAdminRake }}</td>
+    </ng-container>
+
+    <!-- Balance Column -->
+    <ng-container matColumnDef="totalTournamentRevenue">
+      <th mat-header-cell *matHeaderCellDef>total Tournament Revenue</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.totalTournamentRevenue }}
+      </td>
+    </ng-container>
+
+    <!-- expenses Column -->
+    <ng-container matColumnDef="expenses">
+      <th mat-header-cell *matHeaderCellDef>expenses</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.expenses }}
+      </td>
+    </ng-container>
+
+    <!-- Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
