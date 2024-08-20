@@ -8,12 +8,12 @@ import { UserType } from '../constants/user-type';
   providedIn: 'root',
 })
 export class LoginService {
-  private baseUrl = environment.apiUrl1 + 'userManagement';
+  private baseUrl = environment.apiUrl1 + 'auth';
 
   constructor(private http: HttpClient) {}
 
   login(password: string, username: string): Observable<UserType> {
-    return this.http.post<UserType>(this.baseUrl + '/login', {
+    return this.http.post<UserType>(this.baseUrl + 'login', {
       username,
       password,
     });

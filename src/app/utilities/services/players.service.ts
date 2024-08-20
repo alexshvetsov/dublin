@@ -5,6 +5,7 @@ import { environment } from '../../../enviroments/enviroments';
 import { Agent } from '../models/agent';
 import { Player } from '../models/player';
 import {
+  AdminPlayerView,
   AgentPlayerView,
   GamePlayerView,
   PlayerView,
@@ -41,12 +42,17 @@ export class PlayersService {
     // change once api ready for now localhost3000
     return this.http.get<AgentPlayerView>(this.baseUrl + 'Agent');
   }
+  getPlayerByUserNameForAdmin(username: string): Observable<AdminPlayerView> {
+    // const url = `${this.baseUrl}?username=${username}`;
+    // return this.http.get<PlayerView>(url);
+    // change once api ready for now localhost3000
+    return this.http.get<AdminPlayerView>(this.baseUrl + 'Admin');
+  }
 
   getPlayersForAutocomplete(username: string): Observable<SelectOption[]> {
     // const url = `${this.baseUrl}?username=${username}`;
     // return this.http.get<PlayerView>(url);
     // change once api ready for now localhost3000
-    return this.http.get<SelectOption[]>(this.baseUrl+'autocomplete');
+    return this.http.get<SelectOption[]>(this.baseUrl + 'autocomplete');
   }
-
 }

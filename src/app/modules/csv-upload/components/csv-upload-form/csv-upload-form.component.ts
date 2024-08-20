@@ -14,7 +14,7 @@ export class CsvUploadFormComponent {
 
   constructor(private fb: FormBuilder, private csvService: CsvUploadService) {
     this.csvForm = this.fb.group({
-      csvFile: [null],
+      file: [null],
     });
   }
 
@@ -31,7 +31,7 @@ export class CsvUploadFormComponent {
   onSubmit(): void {
     if (this.selectedFile) {
       const formData = new FormData();
-      formData.append('csvFile', this.selectedFile, this.selectedFile.name);
+      formData.append('file', this.selectedFile, this.selectedFile.name);
 
       this.csvService.uploadCsv(formData).subscribe({});
     } else {

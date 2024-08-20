@@ -5,6 +5,8 @@ import { environment } from '../../../enviroments/enviroments';
 import { Agent } from '../models/agent';
 import { Game, GameView } from '../models/game';
 import {
+  AdminPlayerView,
+  GameAdminPlayerView,
   GameAgentPlayerView,
   GamePlayerView,
 } from '../models/player-view-interfaces';
@@ -39,4 +41,5 @@ export class GamesService {
     // change once api ready for now localhost3000
     return this.http.get<GameAgentPlayerView[]>(this.baseUrl + 'PlayersAgent');
   }
+
 }

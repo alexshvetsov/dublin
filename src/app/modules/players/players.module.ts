@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerFormComponent } from './components/player-form/player-form.component';
 import { PlayerGamesTableComponent } from './components/player-games-table/player-games-table.component';
 import { PlayerViewDataComponent } from './components/player-view-data/player-view-data.component';
+import { PlayerAutocompleteInputComponent } from '../../utilities/component/player-autocomplete-input/player-autocomplete-input.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { PlayerViewDataComponent } from './components/player-view-data/player-vi
     PlayerComponent,
     PlayerFormComponent,
     PlayerGamesTableComponent,
-    PlayerViewDataComponent
+    PlayerViewDataComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { PlayerViewDataComponent } from './components/player-view-data/player-vi
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    PlayerAutocompleteInputComponent,
   ],
   providers: [],
 })

@@ -1,119 +1,185 @@
-<form class="form" [formGroup]="playerFormGroup" (ngSubmit)="onSubmit()">
-    <!-- Full Name -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Full Name</mat-label>
-      <input matInput formControlName="fullName" placeholder="Enter full name" />
-      <mat-error *ngIf="playerFormGroup.get('fullName')?.hasError('required')">
-        Full Name is required.
-      </mat-error>
-      <mat-error *ngIf="playerFormGroup.get('fullName')?.hasError('maxlength')">
-        Full Name cannot be more than 50 characters long.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- In-Game Name -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>In-Game Name</mat-label>
-      <input
-        matInput
-        formControlName="inGameName"
-        placeholder="Enter in-game name"
-      />
-      <mat-error *ngIf="playerFormGroup.get('inGameName')?.hasError('required')">
-        In-Game Name is required.
-      </mat-error>
-      <mat-error *ngIf="playerFormGroup.get('inGameName')?.hasError('maxlength')">
-        In-Game Name cannot be more than 50 characters long.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Phone Number -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Phone Number</mat-label>
-      <input
-        matInput
-        formControlName="phoneNumber"
-        placeholder="Enter phone number"
-        type="tel"
-      />
-      <mat-error *ngIf="playerFormGroup.get('phoneNumber')?.hasError('required')">
-        Phone Number is required.
-      </mat-error>
-      <mat-error
-        *ngIf="playerFormGroup.get('phoneNumber')?.hasError('maxlength')"
-      >
-        Phone Number cannot be more than 10 characters long.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Agent ID -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Agent ID</mat-label>
-      <input matInput formControlName="agentId" placeholder="Enter agent ID" />
-      <mat-error *ngIf="playerFormGroup.get('agentId')?.hasError('required')">
-        Agent ID is required.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Create Date -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Create Date</mat-label>
-      <input
-        matInput
-        [matDatepicker]="createDatePicker"
-        formControlName="createDate"
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="createDatePicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker touchUi #createDatePicker></mat-datepicker>
-      <mat-error *ngIf="playerFormGroup.get('createDate')?.hasError('required')">
-        Create Date is required.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Updated Date -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Updated Date</mat-label>
-      <input
-        matInput
-        [matDatepicker]="updatedDatePicker"
-        formControlName="updatedDated"
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="updatedDatePicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker touchUi #updatedDatePicker></mat-datepicker>
-      <mat-error
-        *ngIf="playerFormGroup.get('updatedDated')?.hasError('required')"
-      >
-        Updated Date is required.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Admin Name -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Admin Name</mat-label>
-      <input
-        matInput
-        formControlName="adminName"
-        placeholder="Enter admin name"
-      />
-      <mat-error *ngIf="playerFormGroup.get('adminName')?.hasError('required')">
-        Admin Name is required.
-      </mat-error>
-    </mat-form-field>
-  
-    <!-- Submit Button -->
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="playerFormGroup.invalid"
+<form [formGroup]="playerFormGroup" (ngSubmit)="onSubmit()" class="user-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter Name" />
+    <mat-error *ngIf="playerFormGroup.get('name')?.hasError('required')">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nickname</mat-label>
+    <input matInput formControlName="nickname" placeholder="Enter Nickname" />
+    <mat-error *ngIf="playerFormGroup.get('nickname')?.hasError('required')">
+      Nickname is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Agent Phone Number</mat-label>
+    <input
+      matInput
+      formControlName="agentPhoneNumber"
+      placeholder="Enter Agent Phone Number"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Agent Name</mat-label>
+    <input
+      matInput
+      formControlName="agentName"
+      placeholder="Enter Agent Name"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Weekly Balance</mat-label>
+    <input
+      matInput
+      formControlName="weeklyBalance"
+      type="number"
+      placeholder="Enter Weekly Balance"
+    />
+    <mat-error
+      *ngIf="playerFormGroup.get('weeklyBalance')?.hasError('required')"
     >
-      Submit
-    </button>
-  </form>
-  
+      Weekly Balance is required.
+    </mat-error>
+    <mat-error *ngIf="playerFormGroup.get('weeklyBalance')?.hasError('min')">
+      Weekly Balance must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Total Balance</mat-label>
+    <input
+      matInput
+      formControlName="totalBalance"
+      type="number"
+      placeholder="Enter Total Balance"
+    />
+    <mat-error
+      *ngIf="playerFormGroup.get('totalBalance')?.hasError('required')"
+    >
+      Total Balance is required.
+    </mat-error>
+    <mat-error *ngIf="playerFormGroup.get('totalBalance')?.hasError('min')">
+      Total Balance must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Weekly Rake</mat-label>
+    <input
+      matInput
+      formControlName="weeklyRake"
+      type="number"
+      placeholder="Enter Weekly Rake"
+    />
+    <mat-error *ngIf="playerFormGroup.get('weeklyRake')?.hasError('required')">
+      Weekly Rake is required.
+    </mat-error>
+    <mat-error *ngIf="playerFormGroup.get('weeklyRake')?.hasError('min')">
+      Weekly Rake must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>User Type</mat-label>
+    <input matInput formControlName="userType" placeholder="Enter User Type" />
+    <mat-error *ngIf="playerFormGroup.get('userType')?.hasError('required')">
+      User Type is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input
+      matInput
+      formControlName="firstName"
+      placeholder="Enter First Name"
+    />
+    <mat-error *ngIf="playerFormGroup.get('firstName')?.hasError('required')">
+      First Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Family Name</mat-label>
+    <input
+      matInput
+      formControlName="familyName"
+      placeholder="Enter Family Name"
+    />
+    <mat-error *ngIf="playerFormGroup.get('familyName')?.hasError('required')">
+      Family Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Phone Number</mat-label>
+    <input
+      matInput
+      formControlName="phoneNumber"
+      placeholder="Enter Phone Number"
+    />
+    <mat-error *ngIf="playerFormGroup.get('phoneNumber')?.hasError('required')">
+      Phone Number is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Phone ID</mat-label>
+    <input matInput formControlName="phoneId" placeholder="Enter Phone ID" />
+    <mat-error *ngIf="playerFormGroup.get('phoneId')?.hasError('required')">
+      Phone ID is required.
+    </mat-error>
+  </mat-form-field>
+
+  <app-player-autocomplete-input [control]="agentIdControl" />
+  <app-player-autocomplete-input [control]="adminIdControl" />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Created Date</mat-label>
+    <input
+      matInput
+      formControlName="createdDate"
+      [matDatepicker]="createdDatePicker"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="createdDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #createdDatePicker></mat-datepicker>
+    <mat-error *ngIf="playerFormGroup.get('createdDate')?.hasError('required')">
+      Created Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Updated Date</mat-label>
+    <input
+      matInput
+      formControlName="updatedDate"
+      [matDatepicker]="updatedDatePicker"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="updatedDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #updatedDatePicker></mat-datepicker>
+    <mat-error *ngIf="playerFormGroup.get('updatedDate')?.hasError('required')">
+      Updated Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="playerFormGroup.invalid"
+  >
+    Submit
+  </button>
+</form>

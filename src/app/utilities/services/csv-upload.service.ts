@@ -9,11 +9,12 @@ import { CsvUpload } from '../models/csv-upload';
 })
 export class CsvUploadService {
   private apiUrl = environment.apiUrl + 'csvUpload'; // Replace with your API endpoint
+  private apiUrl1 = environment.apiUrl1 + 'admin/game/addGame'; // Replace with your API endpoint
 
   constructor(private http: HttpClient) {}
 
   uploadCsv(formData: FormData): Observable<CsvUpload> {
-    return this.http.post<CsvUpload>(this.apiUrl, formData);
+    return this.http.post<CsvUpload>(this.apiUrl1, formData);
   }
 
   getCsvUploads(): Observable<CsvUpload[]> {

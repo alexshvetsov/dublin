@@ -4,7 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlayersService } from '../../../../utilities/services/players.service';
 import { AuthService } from '../../../../utilities/services/auth.service';
 import {
+  AdminPlayerView,
   AgentPlayerView,
+  GameAdminPlayerView,
   GameAgentPlayerView,
   GamePlayerView,
   PlayerView,
@@ -20,7 +22,7 @@ import { GamesService } from '../../../../utilities/services/games.service';
 })
 export class PlayerComponent {
   adminName: string = 'admin1';
-  player!: PlayerView | AgentPlayerView;
+  player!: PlayerView | AgentPlayerView | AdminPlayerView;
   games!: GamePlayerView[];
   userType: string = this.authcService.userType || UserType.Player;
 
@@ -45,6 +47,8 @@ export class PlayerComponent {
         this.getDataForPlayer(id);
       } else if (this.userType === UserType.Agent) {
         this.getDataForAgent(id);
+      } else if (this.userType === UserType.Admin) {
+        this.getDataForAdmin(id);
       }
     }
   }
@@ -78,7 +82,29 @@ export class PlayerComponent {
         this.games = games;
       });
   }
-  addOrUpdatePlayer(player: Player): void {
+
+  getDataForAdmin(id: string): void {
+    this.playerService
+      .getPlayerByUserNameForAdmin(id)
+      .subscribe((player: AdminPlayerView) => {
+        console.log('this.player', this.player);
+        this.player = player;
+      });
+    this.gamesService
+      .getGamesByUserNameForAgent(id)
+      .subscribe((games: GameAdminPlayerView[]) => {
+        console.log('this.games', games);
+        this.games = games;
+      });
+  }
+
+  addOrUpdatePlayer(player: AgentPlayerView): void {
     console.log(player);
+  }
+  isAdminPlayerView(
+    player: AdminPlayerView | AgentPlayerView | PlayerView
+  ): player is AdminPlayerView {
+    console.log(' this.userType', this.userType);
+    return this.userType === 'admin';
   }
 }

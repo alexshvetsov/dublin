@@ -9,7 +9,10 @@ import {
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Player } from '../../../../utilities/models/player';
-import { PlayerView } from '../../../../utilities/models/player-view-interfaces';
+import {
+  AdminPlayerView,
+  PlayerView,
+} from '../../../../utilities/models/player-view-interfaces';
 import { UserType } from '../../../constants/user-type';
 import { AuthService } from '../../../../utilities/services/auth.service';
 
@@ -22,10 +25,10 @@ import { AuthService } from '../../../../utilities/services/auth.service';
 export class PlayerFormComponent implements OnInit, OnChanges {
   adminName: string = 'admin1';
   playerFormGroup: FormGroup = this.createPlayerFormGroup();
-  @Input() player?: PlayerView;
+  @Input() player?: AdminPlayerView;
 
-  @Output() playerFormSubmitted: EventEmitter<Player> =
-    new EventEmitter<Player>();
+  @Output() playerFormSubmitted: EventEmitter<AdminPlayerView> =
+    new EventEmitter<AdminPlayerView>();
 
   constructor(private authService: AuthService) {}
 
@@ -34,13 +37,22 @@ export class PlayerFormComponent implements OnInit, OnChanges {
       this.assignFormValues();
     }
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['player'].currentValue) {
-      this.player = changes['player'].currentValue as PlayerView;
+      this.player = changes['player'].currentValue as AdminPlayerView;
       if (this.authService.userType === UserType.Admin) {
         this.assignFormValues();
       }
     }
+  }
+
+  get adminIdControl(): FormControl {
+    return this.playerFormGroup.get('adminId') as FormControl;
+  }
+
+  get agentIdControl(): FormControl {
+    return this.playerFormGroup.get('agentId') as FormControl;
   }
 
   assignFormValues(): void {
@@ -54,48 +66,54 @@ export class PlayerFormComponent implements OnInit, OnChanges {
 
   createPlayerFormGroup(): FormGroup {
     return new FormGroup({
-      fullName: new FormControl('', [
+      name: new FormControl('', Validators.required),
+      nickname: new FormControl('', Validators.required),
+      agentPhoneNumber: new FormControl(''),
+      agentName: new FormControl(''),
+      weeklyBalance: new FormControl(0, [
         Validators.required,
-        Validators.maxLength(50),
+        Validators.min(0),
       ]),
-
-      inGameName: new FormControl('', [
+      totalBalance: new FormControl(0, [
         Validators.required,
-        Validators.maxLength(50),
+        Validators.min(0),
       ]),
-      phoneNumber: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.maxLength(10),
-      ]),
-      agentId: new FormControl('', [Validators.required]),
-      createDate: new FormControl({ value: new Date(), disabled: true }, [
-        Validators.required,
-      ]),
-      updatedDated: new FormControl({ value: new Date(), disabled: true }, [
-        Validators.required,
-      ]),
-      adminName: new FormControl({ value: this.adminName, disabled: true }, [
-        Validators.required,
-      ]),
+      weeklyRake: new FormControl(0, [Validators.required, Validators.min(0)]),
+      userType: new FormControl('', Validators.required),
+      firstName: new FormControl('', Validators.required),
+      familyName: new FormControl('', Validators.required),
+      phoneNumber: new FormControl('', Validators.required),
+      phoneId: new FormControl('', Validators.required),
+      agentId: new FormControl('', Validators.required),
+      adminId: new FormControl('', Validators.required),
+      createdDate: new FormControl(
+        { value: new Date(), disabled: true },
+        Validators.required
+      ),
+      updatedDate: new FormControl(
+        { value: new Date(), disabled: true },
+        Validators.required
+      ),
     });
   }
 
   onSubmit(): void {
-    const player: Player = this.createNewPlayer();
+    const player: AdminPlayerView = this.createNewPlayer();
     if (player) {
       this.playerFormSubmitted.emit(player);
       console.log('Player data submitted:', player);
     }
   }
 
-  createNewPlayer(): Player {
+  createNewPlayer(): AdminPlayerView {
     const defaultPlayer = {
       id: '-1',
       weeklyBalance: 0,
       weeklyRake: 0,
       totalBalance: 0,
       games: [],
+      createdDate: new Date(),
+      updatedDate: new Date(),
     };
 
     const playerData = this.playerFormGroup.getRawValue();
