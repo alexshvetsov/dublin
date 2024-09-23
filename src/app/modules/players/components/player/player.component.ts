@@ -13,6 +13,7 @@ import {
 } from '../../../../utilities/models/player-view-interfaces';
 import { UserType } from '../../../constants/user-type';
 import { GamesService } from '../../../../utilities/services/games.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-player',
@@ -25,6 +26,7 @@ export class PlayerComponent {
   player!: PlayerView | AgentPlayerView | AdminPlayerView;
   games!: GamePlayerView[];
   userType: string = this.authcService.userType || UserType.Player;
+  userType$: Observable<string> = this.authcService.userType$.asObservable();
 
   constructor(
     private router: Router,
@@ -37,17 +39,16 @@ export class PlayerComponent {
   }
   getPlayerFromDB(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
 
     if (!id) {
       this.router.navigate(['players']);
     }
-    if (!this.player && id) {
-      if (this.userType === UserType.Player) {
+    if (!this.player && id && +id > -1) {
+      if (this.authcService.userType$.getValue() === UserType.Player) {
         this.getDataForPlayer(id);
-      } else if (this.userType === UserType.Agent) {
+      } else if (this.authcService.userType$.getValue() === UserType.Agent) {
         this.getDataForAgent(id);
-      } else if (this.userType === UserType.Admin) {
+      } else if (this.authcService.userType$.getValue() === UserType.Admin) {
         this.getDataForAdmin(id);
       }
     }
@@ -57,13 +58,11 @@ export class PlayerComponent {
     this.playerService
       .getPlayerByUserNameForPlayer(id)
       .subscribe((player: PlayerView) => {
-        console.log('this.player', this.player);
         this.player = player;
       });
     this.gamesService
       .getGamesByUserNameForPlayer(id)
       .subscribe((games: GamePlayerView[]) => {
-        console.log('this.games', games);
         this.games = games;
       });
   }
@@ -72,13 +71,12 @@ export class PlayerComponent {
     this.playerService
       .getPlayerByUserNameForAgent(id)
       .subscribe((player: AgentPlayerView) => {
-        console.log('this.player', this.player);
         this.player = player;
+        console.log(this.player);
       });
     this.gamesService
       .getGamesByUserNameForAgent(id)
       .subscribe((games: GameAgentPlayerView[]) => {
-        console.log('this.games', games);
         this.games = games;
       });
   }
@@ -87,24 +85,29 @@ export class PlayerComponent {
     this.playerService
       .getPlayerByUserNameForAdmin(id)
       .subscribe((player: AdminPlayerView) => {
-        console.log('this.player', this.player);
         this.player = player;
       });
     this.gamesService
       .getGamesByUserNameForAgent(id)
       .subscribe((games: GameAdminPlayerView[]) => {
-        console.log('this.games', games);
         this.games = games;
       });
   }
 
-  addOrUpdatePlayer(player: AgentPlayerView): void {
-    console.log(player);
+  addOrUpdatePlayer(player: AdminPlayerView): void {
+    if (+player.id != -1) {
+      this.playerService.addPlayer(player).subscribe(() => {
+        this.router.navigate(['players']);
+      });
+    } else {
+      this.playerService.updatePlayer(player).subscribe(() => {
+        this.router.navigate(['players']);
+      });
+    }
   }
   isAdminPlayerView(
     player: AdminPlayerView | AgentPlayerView | PlayerView
   ): player is AdminPlayerView {
-    console.log(' this.userType', this.userType);
-    return this.userType === 'admin';
+    return this.authcService.userType$.getValue() === 'admin';
   }
 }

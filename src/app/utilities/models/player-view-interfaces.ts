@@ -5,6 +5,7 @@ export interface PlayerView {
   agentName?: string;
   weeklyBalance: number;
   totalBalance: number;
+  id: string;
 }
 export interface GamePlayerView {
   id: number;

@@ -1,4 +1,5 @@
 {
+  "login":"admin",
   "players": {
     "name": "string",
     "nickname": "string",

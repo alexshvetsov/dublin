@@ -52,17 +52,17 @@ export class LoginComponent {
       this.loginService
         .login(loginData.password, loginData.username)
         .subscribe((userType: string) => {
-          this.authService.userType = userType.toLocaleLowerCase();
+          this.authService.userType = 'admin';
           this.authService.username = loginData.username;
           localStorage.setItem(
             'userData',
             JSON.stringify({
-              userType: userType.toLocaleLowerCase(),
+              userType: 'admin',
               username: loginData.username,
             })
           );
           const url =
-            userType.toLocaleLowerCase() === UserType.Player
+            this.authService.userType === UserType.Player
               ? '/players/' + loginData.username
               : '/players';
           this.router.navigate([url]);

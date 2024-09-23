@@ -1,13 +1,13 @@
 <div>
-  <ng-container *ngIf="isAdminPlayerView(player) && player">
+  <ng-container *ngIf="isAdminPlayerView(player); else playerViewTemp">
     <app-player-form
       [player]="player"
       (playerFormSubmitted)="addOrUpdatePlayer($event)"
     />
   </ng-container>
-  <!-- <ng-template #playerViewTemp>
+  <ng-template #playerViewTemp>
     <app-player-view-data [player]="player"
-  /></ng-template> -->
+  /></ng-template>
 
   <app-player-games-table [games]="games" />
 </div>

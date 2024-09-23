@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './utilities/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -8,6 +9,8 @@ export const routes: Routes = [
   },
   {
     path: 'bankView',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadComponent: () =>
       import('./modules/bank-view/bank-view.component').then(
         (m) => m.BankViewComponent
@@ -15,6 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'gamesView',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadComponent: () =>
       import('./modules/games-view/games-view.component').then(
         (m) => m.GamesViewComponent
@@ -22,6 +27,8 @@ export const routes: Routes = [
   },
   {
     path: 'incidents',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadChildren: () =>
       import('./modules/incidents/incidents.module').then(
         (m) => m.IncidentsModule
@@ -29,11 +36,15 @@ export const routes: Routes = [
   },
   {
     path: 'players',
+    // canActivate: [AuthGuard],
+    // data: { expectedUserType: ['admin'] },
     loadChildren: () =>
       import('./modules/players/players.module').then((m) => m.PlayersModule),
   },
   {
     path: 'expenses',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadChildren: () =>
       import('./modules/expenses-view/expenses-view.module').then(
         (m) => m.ExpensesViewModule
@@ -41,6 +52,8 @@ export const routes: Routes = [
   },
   {
     path: 'payments',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadChildren: () =>
       import('./modules/payments/payments.module').then(
         (m) => m.PaymentsModule
@@ -48,6 +61,8 @@ export const routes: Routes = [
   },
   {
     path: 'csv-upload',
+    canActivate: [AuthGuard],
+    data: { expectedUserType: ['admin'] },
     loadChildren: () =>
       import('./modules/csv-upload/csv-upload.module').then(
         (m) => m.CsvUploadModule

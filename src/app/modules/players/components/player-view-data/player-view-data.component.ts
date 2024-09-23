@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import {
   AgentPlayerView,
   PlayerView,
@@ -16,4 +16,12 @@ export class PlayerViewDataComponent {
   @Input({ required: true }) player!: any;
   userType: string = this.authService.userType || UserType.Player;
   constructor(private authService: AuthService) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('changes', changes);
+    if (changes['player'].currentValue) {
+      this.player = changes['player'].currentValue;
+      console.log('asd', this.player);
+    }
+  }
 }

@@ -1,12 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- Sidebar -->
-  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    opened
+    [ngClass]="(userType$ | async) !== 'admin' ? 'hidden' : 'sidenav'"
+  >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a
         mat-list-item
         (click)="navigate('players')"
-        routerLinkActive="active-link"
+        routerLinkActive="active-link "
         >Players</a
       >
     </mat-nav-list>
@@ -72,9 +77,12 @@
   <mat-sidenav-content>
     <!-- Headline area -->
     <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <ng-container *ngIf="(userType$ | async) === 'admin'">
+        <button mat-icon-button (click)="toggleSidenav()" class="menu-button">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </ng-container>
+
       <span>My Application</span>
     </mat-toolbar>
 

@@ -29,6 +29,13 @@ export class PlayersService {
     return this.http.get<Player[]>(url);
   }
 
+  addPlayer(player: AdminPlayerView): Observable<AdminPlayerView> {
+    return this.http.post<AdminPlayerView>(this.baseUrl, player);
+  }
+  updatePlayer(player: AdminPlayerView): Observable<AdminPlayerView> {
+    return this.http.put<AdminPlayerView>(this.baseUrl, player);
+  }
+
   getPlayerByUserNameForPlayer(username: string): Observable<PlayerView> {
     // const url = `${this.baseUrl}?username=${username}`;
     // return this.http.get<PlayerView>(url);

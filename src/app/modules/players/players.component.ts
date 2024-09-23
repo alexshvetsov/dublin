@@ -48,6 +48,6 @@ export class PlayersComponent implements OnInit {
     );
   }
   navigateToPlayer(player: AgentPlayerData): void {
-    this.router.navigate(['players', player.username || 'as']);
+    this.router.navigate(['players', player.username || '1']);
   }
 }
